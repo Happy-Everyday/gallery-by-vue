@@ -8,8 +8,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'index',
+      component(resolve) {
+        require(["@/components/index"], resolve)
+      }
     }
   ]
 })
