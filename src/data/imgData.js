@@ -1,52 +1,84 @@
 const imgData = [
     {
-        name: '1.jpg'
+      "fileName": "1.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer."
     },
     {
-        name: '2.jpg'
+      "fileName": "2.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer."
     },
     {
-        name: '3.jpg'
+      "fileName": "3.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer."
     },
     {
-        name: '4.jpg'
+      "fileName": "4.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '5.jpg'
+      "fileName": "5.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '6.jpg'
+      "fileName": "6.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '7.jpg'
+      "fileName": "7.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '8.jpg'
+      "fileName": "8.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '9.jpg'
+      "fileName": "9.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '10.jpg'
+      "fileName": "10.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '11.jpg'
+      "fileName": "11.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer. "
     },
     {
-        name: '12.jpg'
+      "fileName": "12.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer.  "
     },
     {
-        name: '13.jpg'
+      "fileName": "13.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer.  "
     },
     {
-        name: '14.jpg'
+      "fileName": "14.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer.  "
     },
     {
-        name: '15.jpg'
+      "fileName": "15.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer.  "
     },
     {
-        name: '16.jpg'
+      "fileName": "16.jpg",
+      "title": "Heaven of time",
+      "desc": "Here he comes Here comes Speed Racer.  "
     }
-]
+  ]
 
 export default imgData
