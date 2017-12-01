@@ -1,12 +1,16 @@
 <template>
     <div class="index_page">
         <div class="stage" id="stage">
-            <div class="pic_item" v-for="(item, index) of list" :style="item.style" :class="{'center': item.isCenter}" @click="getPicPos(index)">
+            <div class="pic_item" v-for="(item, index) of list" :style="item.style" :class="{'center': item.isCenter, 'is-inverse': item.isInter}" @click="changePis(index)">
                 <img :src="item.src" alt="">
-                <p>{{item.title}}</p>       
+                <p>{{item.title}}</p>
+                <div class="img-back">
+                    <p>{{item.desc}}</p>
+                </div>   
             </div>
         </div>
         <div class="controller">
+            <a  v-for="(item, index) of list" :class="{'center': item.isCenter, 'is-inverse': item.isInter}" @click="changePis(index)"></a>
         </div>
     </div>
 </template>
@@ -75,6 +79,7 @@
                 return {
                     src: require(`../assets/images/${item.fileName}`),
                     title: item.title,
+                    desc: item.desc,
                     isCenter: index === 0? true: false,
                     isInter: false,
                     style: `transform: rotate(0deg);left: ${_this.constant.centerPos.left}px;top:${_this.constant.centerPos.top}px;`
@@ -93,13 +98,21 @@
             getRandomNum(small, big) { // 取两个值之间的随机值
                 return Math.floor(Math.random()*(big - small) + small)
             },
-            getRandom30Deg() { // 取正负30度之间的随机值
+            getRandom30Deg () { // 取正负30度之间的随机值
                 return ((Math.random() > 0.5 ? '' :'-') + Math.floor(Math.random() * 30))
             },
-            getPicPos(centerIndex) { // 获取图片的各个随即位置
-                let _this = this
+            changePis (centerIndex) {
                 if (this.list[centerIndex].isCenter) {
+                    this.getPicInverse(centerIndex)
+                } else {
+                    this.getPicPos(centerIndex)
                 }
+            },
+            getPicInverse (centerIndex) {
+                this.list[centerIndex].isInter = !this.list[centerIndex].isInter
+            },
+            getPicPos (centerIndex) { // 获取图片的各个随即位置
+                let _this = this
                 // 上部布局，随机取值，取0或1个
                 let topPicNum = Math.floor(Math.random()*2)
 
@@ -111,6 +124,7 @@
                 // 左右图片数组
                 for(let i = 0,len = this.list.length,k = len / 2;i < len;i++) {
                     this.list[i].isCenter = false
+                    this.list[i].isInter = false
                     if (i < k) {
                         this.list[i].style = `transform: rotate(${_this.getRandom30Deg()}deg);left:${_this.getRandomNum(_this.constant.xPosRange.leftRange[0], _this.constant.xPosRange.leftRange[1])}px;top:${_this.getRandomNum(_this.constant.xPosRange.y[0], _this.constant.xPosRange.y[1])}px;`
                     } else {
@@ -118,9 +132,9 @@
                     }
                     if (i === centerIndex) {
                         this.list[i].isCenter = true
-                        this.list[i].style = `transform: rotate(0deg);left: ${this.constant.centerPos.left}px;top:${this.constant.centerPos.top}px;`
+                        this.list[i].style = `left: ${this.constant.centerPos.left}px;top:${this.constant.centerPos.top}px;`
                     }
-                    if (i === topImgSpliceIndex && topPicNum > 0) {
+                    if (i === topImgSpliceIndex && topPicNum > 0  && i !== centerIndex) {
                         this.list[i].style = `transform: rotate(${_this.getRandom30Deg()}deg);top:${_this.getRandomNum(_this.constant.yPosRange.topRange[0], _this.constant.yPosRange.topRange[1])}px;left:${_this.getRandomNum(_this.constant.yPosRange.x[0], _this.constant.yPosRange.x[1])}px;`
                     }
                 }
